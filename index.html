@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joke API</title>
+    <script src=""></script>
+    <script>
+        function getJoke() {
+            $.ajax({
+                url: 'Invoke_URL/joke',
+                type: 'GET',
+                success: function (response) {
+                    document.getElementById('joke-setup').textContent = response.setup;
+                    document.getElementById('joke-punchline').textContent = response.punchline;
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Random Joke Generator</h1>
+    <button onclick="getJoke()">Get Joke</button>
+    <div id="joke-setup"></div>
+    <div id="joke-punchline"></div>
+</body>
+</html>
+
